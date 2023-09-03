@@ -109,7 +109,7 @@ class AggregateLayer(nn.Module):
         self.use_gpu = use_gpu
 
     def edge_attention(self,edges):
-        return {'rd1': -edges.src['d1'] / -edges.src['d'], 'rd2': -edges.src['d2'] / edges.src['d']}
+        return {'rd1': -edges.src['d1'] / edges.src['d'], 'rd2': -edges.src['d2'] / edges.src['d']}
 
     def message_func(self, edges):
         return {'rd1': edges.data['rd1'], 'rd2': edges.data['rd2'],'h':edges.src['x']}
